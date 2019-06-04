@@ -5,10 +5,10 @@ const {
     Todo,
 } = require('../models');
 
-function respondWithError(res) {
+function respondWithError(res, code=500) {
     return function (err) {
         console.error(err);
-        res.send(err);
+        res.status(code).send(err);
     }
 }
 
@@ -27,7 +27,17 @@ router.route('/')
 router.route('/:_id')
     .get((req, res) => {
         Todo.findById(req.params._id)
-            .then(res.json.bind(res))
+            .then((todo) => {
+                if (todo) {
+                    res.json(todo);
+                } else {
+                    res
+                        .status(404)
+                        .json({
+                            message: `Could not find ${req.params._id}`,
+                        });
+                }
+            })
             .catch(respondWithError(res));
     })
     .put((req, res) => {
@@ -40,7 +50,7 @@ router.route('/:_id')
             .then(() => res.json({
                 message: `Successfully deleted ${req.params._id}`
             }))
-            .catch(respondWithError(res));
+            .catch(respondWithError(res, 404));
     });
 
 module.exports = {
