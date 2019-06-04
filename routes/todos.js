@@ -14,13 +14,13 @@ function respondWithError(res) {
 
 router.get("/", (req, res) => {
     Todo.find()
-        .then(res.json)
+        .then(res.json.bind(res))
         .catch(respondWithError(res));
 });
 
 router.post('/', (req, res) => {
     Todo.create(req.body)
-        .then(res.json)
+        .then(res.json.bind(res))
         .catch(respondWithError(res));
 });
 
