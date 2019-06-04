@@ -12,8 +12,9 @@ const {
 
 app.use('/api/todos', require('./routes/todos').default);
 
+app.use(express.static(__dirname + '/views'));
 app.get('/', (req, res) => {
-    res.json({ name: 'James Fulford', email: 'james.fulford@outlook.com' });
+    res.sendFile('index.html');
 });
 
 const port = process.env.PORT || 4242;
