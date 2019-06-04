@@ -14,13 +14,9 @@ function respondWithError(res) {
 
 router.get("/", (req, res) => {
     Todo.find()
-        .then((todos) => {
-            res.json(todos);
-        })
-        .catch((err) => {
-            console.error(err);
-            res.send(err);
-        });
+        .then(res.json)
+        .catch(respondWithError(res));
+});
 });
 
 module.exports = {
