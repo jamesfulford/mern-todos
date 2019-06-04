@@ -5,6 +5,8 @@ const {
     Todo,
 } = require('./models');
 
+app.use('/api/todos', require('./routes/todos').default);
+
 app.get('/', (req, res) => {
     res.json({ name: 'James Fulford', email: 'james.fulford@outlook.com' });
 });
