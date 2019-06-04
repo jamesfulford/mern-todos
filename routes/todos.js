@@ -5,6 +5,13 @@ const {
     Todo,
 } = require('../models');
 
+function respondWithError(res) {
+    return function (err) {
+        console.error(err);
+        res.send(err);
+    }
+}
+
 router.get("/", (req, res) => {
     Todo.find()
         .then((todos) => {
