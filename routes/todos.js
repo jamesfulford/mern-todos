@@ -17,6 +17,11 @@ router.get("/", (req, res) => {
         .then(res.json)
         .catch(respondWithError(res));
 });
+
+router.post('/', (req, res) => {
+    Todo.create(req.body)
+        .then(res.json)
+        .catch(respondWithError(res));
 });
 
 module.exports = {
