@@ -1,0 +1,12 @@
+{
+  "name": "todos-node",
+  "version": "1.0.0",
+  "description": "Sample Full-stack Node App",
+  "main": "index.js",
+  "author": "James Fulford <james.fulford@outlook.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
