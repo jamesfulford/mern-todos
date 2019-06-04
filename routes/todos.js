@@ -24,6 +24,12 @@ router.post('/', (req, res) => {
         .catch(respondWithError(res));
 });
 
+router.get('/:id', (req, res) => {
+    Todo.findById(req.params.id)
+        .then(res.json.bind(res))
+        .catch(respondWithError(res));
+});
+
 module.exports = {
     default: router,
 };
