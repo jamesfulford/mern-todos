@@ -36,6 +36,14 @@ router.put('/:_id', (req, res) => {
         .catch(respondWithError(res));
 });
 
+router.delete('/:_id', (req, res) => {
+    Todo.remove(req.params)
+        .then(() => res.json({
+            message: `Successfully deleted ${req.params._id}`
+        }))
+        .catch(respondWithError(res));
+});
+
 module.exports = {
     default: router,
 };
