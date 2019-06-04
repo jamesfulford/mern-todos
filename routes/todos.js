@@ -6,7 +6,14 @@ const {
 } = require('../models');
 
 router.get("/", (req, res) => {
-    res.json([]);
+    Todo.find()
+        .then((todos) => {
+            res.json(todos);
+        })
+        .catch((err) => {
+            console.error(err);
+            res.send(err);
+        });
 });
 
 module.exports = {
