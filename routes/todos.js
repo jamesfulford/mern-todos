@@ -30,6 +30,12 @@ router.get('/:id', (req, res) => {
         .catch(respondWithError(res));
 });
 
+router.put('/:_id', (req, res) => {
+    Todo.findOneAndUpdate(req.params, req.body, { new: true })
+        .then(res.json.bind(res))
+        .catch(respondWithError(res));
+});
+
 module.exports = {
     default: router,
 };
