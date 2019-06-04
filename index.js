@@ -9,6 +9,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const {
     Todo,
 } = require('./models');
+app.use(express.static('public'));
 
 app.use('/api/todos', require('./routes/todos').default);
 
