@@ -6,7 +6,14 @@
   "author": "James Fulford <james.fulford@outlook.com>",
   "license": "MIT",
   "private": false,
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
   }
 }
