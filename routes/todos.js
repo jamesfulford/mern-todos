@@ -20,7 +20,7 @@ router.get("/", (req, res) => {
 
 router.post('/', (req, res) => {
     Todo.create(req.body)
-        .then(res.json.bind(res))
+        .then(res.status(201).json.bind(res))
         .catch(respondWithError(res));
 });
 
