@@ -2,8 +2,12 @@ $(document).ready(function () {
     $.getJSON('/api/todos')
         .done(function(todos) {
             var todoElements = todos.map(function(todo) {
-                return $('<li>' + todo.name + '</li>')
+                var todoElem = $('<li>' + todo.name + '</li>')
                     .addClass('task');
+                if (todo.completed) {
+                    todoElem.addClass('done');
+                }
+                return todoElem;
             });
             var list = $('.list');
             todoElements.forEach(function(todoElement) {
