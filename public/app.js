@@ -21,6 +21,9 @@ $(document).ready(function () {
         }
         $.post('/api/todos', { name: input.val() })
             .done(renderTodo)
+            .done(function () {
+                input.val('');
+            })
             .fail(console.error);
     });
 });
