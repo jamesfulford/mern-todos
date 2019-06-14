@@ -9,7 +9,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "test": "node test.js"
+    "test": "node ./scripts/test.js"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
