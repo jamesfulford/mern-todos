@@ -3,6 +3,9 @@ const app = express();
 
 const bodyParser = require('body-parser');
 
+app.use(require('morgan')('tiny'));
+app.use(require('cors')());
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
